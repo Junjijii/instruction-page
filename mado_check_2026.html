@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>&#x7A93;&#x30EA;&#x30CE;&#x30D9;2026 &#x73FE;&#x5834;&#x30C1;&#x30A7;&#x30C3;&#x30AF;</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Hiragino Kaku Gothic ProN', sans-serif; background: #f0f4f8; color: #1a1a2e; min-height: 100vh; }
+header { background: linear-gradient(135deg, #1a3a5c, #2e6da4); color: white; padding: 16px 20px; text-align: center; }
+header h1 { font-size: 18px; font-weight: bold; }
+header p { font-size: 11px; margin-top: 4px; opacity: 0.85; }
+.back-link { display: block; text-align: center; padding: 10px; font-size: 12px; color: #2e6da4; background: #e8f0fb; text-decoration: none; }
+.container { padding: 16px; max-width: 600px; margin: 0 auto; }
+#result-banner { border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; text-align: center; font-size: 15px; font-weight: bold; transition: all 0.3s; display: none; }
+#result-banner.ok { background:#d4edda; color:#155724; border:2px solid #28a745; display:block; }
+#result-banner.ng { background:#f8d7da; color:#721c24; border:2px solid #dc3545; display:block; }
+#result-banner.maybe { background:#fff3cd; color:#856404; border:2px solid #ffc107; display:block; }
+.section { background: white; border-radius: 12px; margin-bottom: 14px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.section-title { color: white; padding: 10px 16px; font-size: 13px; font-weight: bold; }
+.section-title.danger { background: #c0392b; }
+.section-title.warn { background: #d68910; }
+.section-title.info { background: #148f77; }
+.section-title.memo { background: #555; }
+.check-item { display: flex; align-items: flex-start; padding: 13px 16px; border-bottom: 1px solid #f0f0f0; gap: 12px; cursor: pointer; transition: background 0.15s; }
+.check-item:last-child { border-bottom: none; }
+.check-item:hover { background: #f7fbff; }
+.check-item input[type=checkbox] { width: 22px; height: 22px; accent-color: #2e6da4; flex-shrink: 0; margin-top: 1px; cursor: pointer; }
+.check-item label { font-size: 13.5px; line-height: 1.55; cursor: pointer; flex: 1; }
+.check-item label .sub { font-size: 11.5px; color: #888; display: block; margin-top: 2px; }
+.check-item.checked-item { background: #eaf6ec; }
+.check-item.checked-item label { color: #2e7d32; }
+.ng-item input[type=checkbox] { accent-color: #c0392b; }
+.ng-item.checked-item { background: #fdecea; }
+.ng-item.checked-item label { color: #c0392b; }
+.ng-warn { background: #fff5f5; border-left: 4px solid #e74c3c; padding: 10px 14px; font-size: 12px; color: #c0392b; margin: 0 16px 12px; border-radius: 0 6px 6px 0; }
+.memo-box { padding: 12px 16px; }
+.memo-box textarea { width: 100%; border: 1px solid #ddd; border-radius: 8px; padding: 10px; font-size: 13px; resize: vertical; min-height: 70px; font-family: inherit; }
+.memo-box textarea:focus { outline: none; border-color: #2e6da4; }
+.btn-reset { display: block; width: 100%; padding: 14px; background: #e8edf2; color: #555; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer; margin-bottom: 24px; }
+.btn-reset:hover { background: #d0dbe8; }
+.footer-note { text-align: center; font-size: 11px; color: #aaa; margin-bottom: 30px; }
+</style>
+</head>
+<body>
+<header>
+<h1>&#x1FA9F; &#x5148;&#x9032;&#x7684;&#x7A93;&#x30EA;&#x30CE;&#x30D92026 &#x73FE;&#x5834;&#x30C1;&#x30A7;&#x30C3;&#x30AF;</h1>
+<p>&#x682A;&#x5F0F;&#x4F1A;&#x793E; &#x4EAC;&#x90FD;&#x30D3;&#x30EB;&#x30B5;&#x30FC;&#x30D3;&#x30B9; / &#x88DC;&#x52A9;&#x91D1;&#x5BFE;&#x8C61;&#x78BA;&#x8A8D;&#x7528;</p>
+</header>
+<a class="back-link" href="index.html">&#x2190; &#x30C4;&#x30FC;&#x30EB;&#x4E00;&#x89A7;&#x306B;&#x623B;&#x308B;</a>
+<div class="container">
+<div id="result-banner"></div>
+<div class="section">
+<div class="section-title danger">&#x1F6AB; NG&#x78BA;&#x8A8D;&#xFF081;&#x3064;&#x3067;&#x3082;&#x8A72;&#x5F53; &#x2192; &#x88DC;&#x52A9;&#x5BFE;&#x8C61;&#x5916;&#xFF09;</div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng1"><label for="ng1">&#x5897;&#x7BC9;&#x90E8;&#x3078;&#x306E;&#x5DE5;&#x4E8B;&#x3067;&#x3042;&#x308B;<span class="sub">&#x5EFA;&#x7BC9;&#x78BA;&#x8A8D;&#x7533;&#x8ACB;&#x304C;&#x5FC5;&#x8981;&#x306A;10&#x338F;&#x8D85;&#x306E;&#x5897;&#x7BC9;&#x306B;&#x4F34;&#x3046;&#x958B;&#x53E3;&#x90E8;</span></label></div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng2"><label for="ng2">&#x5916;&#x58C1;&#x306B;&#x65B0;&#x305F;&#x306B;&#x958B;&#x53E3;&#x90E8;&#x3092;&#x8A2D;&#x3051;&#x3066;&#x7A93;&#x30FB;&#x30C9;&#x30A2;&#x3092;&#x8A2D;&#x7F6E;<span class="sub">&#x65E2;&#x5B58;&#x958B;&#x53E3;&#x90E8;&#x304C;&#x306A;&#x3044;&#x5834;&#x6240;&#x3078;&#x306E;&#x65B0;&#x8A2D;&#x306F;NG</span></label></div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng3"><label for="ng3">&#x65E2;&#x5B58;&#x958B;&#x53E3;&#x90E8;&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3066;&#x7A93;&#x3092;&#x8A2D;&#x7F6E;<span class="sub">&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5927;&#x304D;&#x304F;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;NG&#xFF08;&#x4F8B;&#x5916;&#x3042;&#x308A;&#xFF09;</span></label></div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng4"><label for="ng4">&#x958B;&#x53E3;&#x90E8;&#x306E;&#x4F4D;&#x7F6E;&#x3092;&#x5909;&#x66F4;&#x3057;&#x3066;&#x7A93;&#x30FB;&#x30C9;&#x30A2;&#x3092;&#x8A2D;&#x7F6E;<span class="sub">&#x6A2A;&#x306B;&#x79FB;&#x52D5;&#x30FB;&#x4E0A;&#x4E0B;&#x79FB;&#x52D5;&#x306A;&#x3069;&#x3082;NG</span></label></div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng5"><label for="ng5">&#x4EA4;&#x63DB;&#x524D;&#x3088;&#x308A;&#x591A;&#x3044;&#x30B5;&#x30C3;&#x30B7;&#x6570;&#x3092;&#x8A2D;&#x7F6E;<span class="sub">&#x65E2;&#x5B58;&#x3068;&#x540C;&#x6570;&#x307E;&#x3067;&#x5BFE;&#x8C61;&#x3002;1&#x679A;&#x21921&#x679A;&#x306E;&#x5206;&#x5272;&#x306F;&#x539F;&#x5247;NG</span></label></div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng6"><label for="ng6">&#x904E;&#x53BB;&#x306E;&#x7A93;&#x30EA;&#x30CE;&#x30D9;&#x4E8B;&#x696D;&#xFF082022&#x30FB;2024&#x30FB;2025&#xFF09;&#x3067;&#x88DC;&#x52A9;&#x3092;&#x53D7;&#x3051;&#x305F;&#x7A93;&#x30FB;&#x30C9;&#x30A2;<span class="sub">&#x8FD4;&#x9084;&#x6E08;&#x307F;&#x3082;&#x542B;&#x3081;NG</span></label></div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng7"><label for="ng7">&#x4ED6;&#x306E;&#x56FD;&#x306E;&#x88DC;&#x52A9;&#x5236;&#x5EA6;&#x3068;&#x91CD;&#x8907;&#x3059;&#x308B;&#x7A93;&#x30FB;&#x30C9;&#x30A2;<span class="sub">&#x4F4F;&#x5B85;&#x7701;&#x30A8;&#x30CD;2026&#x30AD;&#x30E3;&#x30F3;&#x30DA;&#x30FC;&#x30F3;&#x5185;&#x306F;&#x91CD;&#x8907;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x4F75;&#x7528;&#x53EF;</span></label></div>
+<div class="check-item ng-item" onclick="toggleCheck(this)"><input type="checkbox" id="ng8"><label for="ng8">&#x30C9;&#x30A2;&#x4EA4;&#x63DB;&#x306E;&#x307F;&#x306E;&#x5DE5;&#x4E8B;&#xFF08;&#x7A93;&#x5DE5;&#x4E8B;&#x306A;&#x3057;&#xFF09;<span class="sub">&#x540C;&#x4E00;&#x4F4F;&#x6238;&#x306E;&#x7A93;&#x5DE5;&#x4E8B;&#x3068;&#x540C;&#x4E00;&#x5951;&#x7D04;&#x30FB;&#x540C;&#x6642;&#x7533;&#x8ACB;&#x304C;&#x5FC5;&#x9808;</span></label></div>
+<div class="ng-warn">&#x203B; BELS&#x8A55;&#x4FA1;&#x66F8; or &#x65E2;&#x5B58;&#x4F4F;&#x5B85;&#x6027;&#x80FD;&#x8A55;&#x4FA1;&#x66F8;&#x3067;&#x65AD;&#x71B1;&#x7B49;&#x6027;&#x80FD;&#x7B49;&#x7D1A;&#xFF15;&#x3092;&#x8A3C;&#x660E;&#x3067;&#x304D;&#x308C;&#x3070;&#x4F8B;&#x5916;&#x9069;&#x7528;&#x3042;&#x308A;</div>
+</div>
+<div class="section">
+<div class="section-title warn">&#x1F4F7; &#x5199;&#x771F;&#x30FB;&#x66F8;&#x985E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#xFF08;&#x5FC5;&#x9808;&#xFF09;</div>
+<div class="check-item" onclick="toggleCheck(this)"><input type="checkbox" id="ph1"><label for="ph1">&#x5DE5;&#x4E8B;&#x300C;&#x524D;&#x300D;&#x5199;&#x771F;&#x3092;&#x5FC5;&#x305A;&#x64AE;&#x308B;&#x6BB5;&#x53D6;&#x308A;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;<span class="sub">&#x64AE;&#x308A;&#x5FD8;&#x308C;&#x53B3;&#x7981;&#x3002;&#x524D;&#x5F8C;&#x306E;&#x95A2;&#x4FC2;&#x304C;&#x308F;&#x304B;&#x308B;&#x5199;&#x771F;&#x304C;&#x5FC5;&#x8981;</span></label></div>
+<div class="check-item" onclick="toggleCheck(this)"><input type="checkbox" id="ph2"><label for="ph2">&#x5DE5;&#x4E8B;&#x300C;&#x5F8C;&#x300D;&#x5199;&#x771F;&#x3082;&#x78BA;&#x5B9F;&#x306B;&#x64AE;&#x308C;&#x308B;&#x4F53;&#x5236;&#x304C;&#x3042;&#x308B;<span class="sub">&#x5DE5;&#x4E8B;&#x524D;&#x5F8C;&#x3067;&#x540C;&#x30A2;&#x30F3;&#x30B0;&#x30EB;&#x30FB;&#x540C;&#x7B87;&#x6240;&#x304C;&#x671B;&#x307E;&#x3057;&#x3044;</span></label></div>
+<div class="check-item" onclick="toggleCheck(this)"><input type="checkbox" id="ph3"><label for="ph3">&#x300C;&#x5DE5;&#x4E8B;&#x524D;&#x5199;&#x771F;&#x30FB;&#x63D0;&#x51FA;&#x514D;&#x9664;&#x4F9D;&#x983C;&#x66F8;&#x300D;&#x306F;&#x672C;&#x4E8B;&#x696D;&#x306B;&#x306F;&#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;<span class="sub">&#x524D;&#x4E8B;&#x696D;&#x3068;&#x306E;&#x9055;&#x3044;&#x306B;&#x6CE8;&#x610F;&#x3002;&#x5FC5;&#x305A;&#x5199;&#x771F;&#x63D0;&#x51FA;&#x304C;&#x5FC5;&#x8981;</span></label></div>
+</div>
+<div class="section">
+<div class="section-title info">&#x2705; &#x88DC;&#x52A9;&#x5BFE;&#x8C61;&#x306B;&#x306A;&#x308B;&#x5DE5;&#x4E8B;&#x306E;&#x78BA;&#x8A8D;</div>
+<div class="check-item" onclick="toggleCheck(this)"><input type="checkbox" id="ok1"><label for="ok1">&#x65E2;&#x5B58;&#x30B5;&#x30C3;&#x30B7;&#x3068;&#x540C;&#x3058;&#x4F4D;&#x7F6E;&#x30FB;&#x540C;&#x3058;&#x6570;&#x3067;&#x306E;&#x4EA4;&#x63DB;&#x3067;&#x3042;&#x308B;</label></div>
+<div class="check-item" onclick="toggleCheck(this)"><input type="checkbox" id="ok2"><label for="ok2">&#x88FD;&#x54C1;&#x306E;&#x5F37;&#x5EA6;&#x5236;&#x7D04;&#x3067;&#x3084;&#x3080;&#x3092;&#x5F97;&#x305A;&#x5206;&#x5272;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x30E1;&#x30FC;&#x30AB;&#x30FC;&#x30AB;&#x30BF;&#x30ED;&#x30B0;&#x7B49;&#x304C;&#x7528;&#x610F;&#x3067;&#x304D;&#x308B;</label></div>
+<div class="check-item" onclick="toggleCheck(this)"><input type="checkbox" id="ok3"><label for="ok3">&#x30C9;&#x30A2;&#x4EA4;&#x63DB;&#x304C;&#x3042;&#x308B;&#x5834;&#x5408;&#x3001;&#x540C;&#x4E00;&#x4F4F;&#x6238;&#x306E;&#x7A93;&#x5DE5;&#x4E8B;&#x3068;&#x540C;&#x4E00;&#x5951;&#x7D04;&#x3067;&#x540C;&#x6642;&#x7533;&#x8ACB;&#x306E;&#x4E88;&#x5B9A;</label></div>
+</div>
+<div class="section">
+<div class="section-title memo">&#x1F4DD; &#x73FE;&#x5834;&#x30E1;&#x30E2;</div>
+<div class="memo-box"><textarea placeholder="&#x7269;&#x4EF6;&#x540D;&#x30FB;&#x6C17;&#x306B;&#x306A;&#x308B;&#x70B9;&#x30FB;&#x78BA;&#x8A8D;&#x4E8B;&#x9805;&#x306A;&#x3069;..."></textarea></div>
+</div>
+<button class="btn-reset" onclick="resetAll()">&#x1F504; &#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x30EA;&#x30BB;&#x30C3;&#x30C8;</button>
+<p class="footer-note">&#x5148;&#x9032;&#x7684;&#x7A93;&#x30EA;&#x30CE;&#x30D92026&#x4E8B;&#x696D; / 2026&#x5E742&#x6708;&#x516C;&#x793A;&#x7248;&#x306B;&#x57FA;&#x3065;&#x304F;</p>
+</div>
+<script>
+function toggleCheck(item){const cb=item.querySelector('input[type="checkbox"]');cb.checked=!cb.checked;cb.checked?item.classList.add('checked-item'):item.classList.remove('checked-item');updateResult();}
+function updateResult(){const ngIds=['ng1','ng2','ng3','ng4','ng5','ng6','ng7','ng8'];const okIds=['ok1','ok3'];const phIds=['ph1','ph2','ph3'];const ngChecked=ngIds.some(id=>document.getElementById(id).checked);const okAll=okIds.every(id=>document.getElementById(id).checked);const phAll=phIds.every(id=>document.getElementById(id).checked);const banner=document.getElementById('result-banner');banner.style.display='block';if(ngChecked){banner.className='ng';banner.innerHTML='&#x1F6AB; &#x88DC;&#x52A9;&#x5BFE;&#x8C61;&#x5916;&#x306E;&#x53EF;&#x80FD;&#x6027;&#x3042;&#x308A;<br><span style="font-size:12px;font-weight:normal">NG&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x306B;&#x8A72;&#x5F53;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x518D;&#x78BA;&#x8A8D;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;</span>';}else if(okAll&&phAll){banner.className='ok';banner.innerHTML='&#x2705; &#x88DC;&#x52A9;&#x5BFE;&#x8C61;&#x306E;&#x53EF;&#x80FD;&#x6027;&#x3042;&#x308A;<br><span style="font-size:12px;font-weight:normal">&#x4E3B;&#x8981;&#x6761;&#x4EF6;&#x3092;&#x30AF;&#x30EA;&#x30A2;&#x3002;&#x7533;&#x8ACB;&#x4E8B;&#x52D9;&#x5C40;&#x306B;&#x6700;&#x7D42;&#x78BA;&#x8A8D;&#x3092;&#x3002;</span>';}else{banner.className='maybe';banner.innerHTML='&#x26A0;&#xFE0F; &#x78BA;&#x8A8D;&#x4E2D;<br><span style="font-size:12px;font-weight:normal">&#x5168;&#x9805;&#x76EE;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x5224;&#x5B9A;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</span>';}}
+function resetAll(){document.querySelectorAll('input[type="checkbox"]').forEach(cb=>cb.checked=false);document.querySelectorAll('.check-item').forEach(item=>item.classList.remove('checked-item'));document.querySelector('textarea').value='';const b=document.getElementById('result-banner');b.className='';b.innerHTML='';b.style.display='none';}
+</script>
+</body>
+</html>
